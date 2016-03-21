@@ -82,4 +82,50 @@ describe 'Converting Roman numerals' do
     expect(converter.r_to_a(100)).to eq('C')
   end
 
+  it 'converts 200 to CC' do
+    expect(converter.r_to_a(200)).to eq('CC')
+  end
+
+  it 'converts 300 to CCC' do
+    expect(converter.r_to_a(300)).to eq('CCC')
+  end
+
+  it 'converts 400 to CD' do
+    expect(converter.r_to_a(400)).to eq('CD')
+  end
+
+  it 'converts 500 to D' do
+    expect(converter.r_to_a(500)).to eq('D')
+  end
+
+  it 'converts 600 to DC' do
+    expect(converter.r_to_a(600)).to eq('DC')
+  end
+
+  it 'converts 700 to DCC' do
+    expect(converter.r_to_a(700)).to eq('DCC')
+  end
+
+  it 'converts 800 to DCCC' do
+    expect(converter.r_to_a(800)).to eq('DCCC')
+  end
+
+  it 'converts 900 to CM' do
+    expect(converter.r_to_a(900)).to eq('CM')
+  end
+
+  it 'converts 1000 to M' do
+    expect(converter.r_to_a(1000)).to eq('M')
+  end
+
+  it 'converts 2000 to MM' do
+    expect(converter.r_to_a(2000)).to eq('MM')
+  end
+
+  # High as I'm going because I don't have any higher order numerals to use that
+  # would prevent me from having four M's in a row
+  it 'converts 3000 to MMM' do
+    expect(converter.r_to_a(3000)).to eq('MMM')
+  end
+
 end

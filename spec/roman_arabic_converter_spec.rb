@@ -145,7 +145,19 @@ describe 'Converting Roman numerals' do
 
     # todo - check with business to see if there is a desired outcome for this situation
     it 'can handle converting 0' do
-      expect{converter.r_to_a(0)}.to_not raise_error
+      expect { converter.r_to_a(0) }.to_not raise_error
+    end
+
+  end
+
+  describe 'spot checking' do
+
+    it 'converts 1066 to MLXVI' do
+      expect(converter.r_to_a(1066)).to eq('MLXVI')
+    end
+
+    it 'converts 1989 to MCMLXXXIX' do
+      expect(converter.r_to_a(1989)).to eq('MCMLXXXIX')
     end
 
   end

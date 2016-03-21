@@ -143,6 +143,11 @@ describe 'Converting Roman numerals' do
       expect(converter.r_to_a(1234)).to eq('MCCXXXIV')
     end
 
+    # todo - check with business to see if there is a desired outcome for this situation
+    it 'can handle converting 0' do
+      expect{converter.r_to_a(0)}.to_not raise_error
+    end
+
   end
 
 end

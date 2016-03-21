@@ -46,4 +46,40 @@ describe 'Converting Roman numerals' do
     expect(converter.r_to_a(10)).to eq('X')
   end
 
+  it 'converts 20 to XX' do
+    expect(converter.r_to_a(20)).to eq('XX')
+  end
+
+  it 'converts 30 to XXX' do
+    expect(converter.r_to_a(30)).to eq('XXX')
+  end
+
+  it 'converts 40 to XL' do
+    expect(converter.r_to_a(40)).to eq('XL')
+  end
+
+  it 'converts 50 to L' do
+    expect(converter.r_to_a(50)).to eq('L')
+  end
+
+  it 'converts 60 to LX' do
+    expect(converter.r_to_a(60)).to eq('LX')
+  end
+
+  it 'converts 70 to LXX' do
+    expect(converter.r_to_a(70)).to eq('LXX')
+  end
+
+  it 'converts 80 to LXXX' do
+    expect(converter.r_to_a(80)).to eq('LXXX')
+  end
+
+  it 'converts 90 to XC' do
+    expect(converter.r_to_a(90)).to eq('XC')
+  end
+
+  it 'converts 100 to C' do
+    expect(converter.r_to_a(100)).to eq('C')
+  end
+
 end

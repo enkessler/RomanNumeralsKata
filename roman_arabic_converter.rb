@@ -1,6 +1,6 @@
 class RomanArabicConverter
 
-  def r_to_a(number)
+  def a_to_r(number)
     converted_number = ''
 
     # Note: will never have a number with more than four digits
@@ -13,6 +13,10 @@ class RomanArabicConverter
     converted_number.prepend(convert_thousands_place(number % 10))
 
     converted_number
+  end
+
+  def r_to_a
+
   end
 
 

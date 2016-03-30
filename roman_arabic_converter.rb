@@ -16,7 +16,31 @@ class RomanArabicConverter
   end
 
   def r_to_a(number)
+    digit_mappings ={'I' => 1,
+                     'V' => 5,
+                     'X' => 10,
+                     'L' => 50,
+                     'C' => 100,
+                     'D' => 500,
+                     'M' => 1000}
 
+    converted_number = 0
+
+    number.split('').each_with_index do |digit, index|
+      current_digit = digit_mappings[digit]
+      next_digit = digit_mappings[number[index+1]]
+
+      # A larger next number indicates subtraction
+      if next_digit && next_digit > current_digit
+        # Subtracting the next number at the end because it will be added on the next iteration of the loop
+        converted_number += (next_digit - current_digit) - next_digit
+      else
+        converted_number += current_digit
+      end
+
+    end
+
+    converted_number
   end
 
 

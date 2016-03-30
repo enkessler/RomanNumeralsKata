@@ -177,6 +177,158 @@ describe 'Converting Roman numerals' do
       expect(converter).to respond_to(:r_to_a)
     end
 
+
+    describe 'basic conversions' do
+
+      it 'converts I to 1' do
+        expect(converter.r_to_a('I')).to eq(1)
+      end
+
+      it 'converts II to 2' do
+        expect(converter.r_to_a('II')).to eq(2)
+      end
+
+      it 'converts III to 3' do
+        expect(converter.r_to_a('III')).to eq(3)
+      end
+
+      it 'converts IV to 4' do
+        expect(converter.r_to_a('IV')).to eq(4)
+      end
+
+      it 'converts V to 5' do
+        expect(converter.r_to_a('V')).to eq(5)
+      end
+
+      it 'converts VI to 6' do
+        expect(converter.r_to_a('VI')).to eq(6)
+      end
+
+      it 'converts VII to 7' do
+        expect(converter.r_to_a('VII')).to eq(7)
+      end
+
+      it 'converts VIII to 8' do
+        expect(converter.r_to_a('VIII')).to eq(8)
+      end
+
+      it 'converts IX to 9' do
+        expect(converter.r_to_a('IX')).to eq(9)
+      end
+
+      it 'converts X to 10' do
+        expect(converter.r_to_a('X')).to eq(10)
+      end
+
+      it 'converts XX to 20' do
+        expect(converter.r_to_a('XX')).to eq(20)
+      end
+
+      it 'converts XXX to 30' do
+        expect(converter.r_to_a('XXX')).to eq(30)
+      end
+
+      it 'converts XL to 40' do
+        expect(converter.r_to_a('XL')).to eq(40)
+      end
+
+      it 'converts L to 50' do
+        expect(converter.r_to_a('L')).to eq(50)
+      end
+
+      it 'converts LX to 60' do
+        expect(converter.r_to_a('LX')).to eq(60)
+      end
+
+      it 'converts LXX to 70' do
+        expect(converter.r_to_a('LXX')).to eq(70)
+      end
+
+      it 'converts LXXX to 80' do
+        expect(converter.r_to_a('LXXX')).to eq(80)
+      end
+
+      it 'converts XC to 90' do
+        expect(converter.r_to_a('XC')).to eq(90)
+      end
+
+      it 'converts C to 100' do
+        expect(converter.r_to_a('C')).to eq(100)
+      end
+
+      it 'converts CC to 200' do
+        expect(converter.r_to_a('CC')).to eq(200)
+      end
+
+      it 'converts CCC to 300' do
+        expect(converter.r_to_a('CCC')).to eq(300)
+      end
+
+      it 'converts CD to 400' do
+        expect(converter.r_to_a('CD')).to eq(400)
+      end
+
+      it 'converts D to 500' do
+        expect(converter.r_to_a('D')).to eq(500)
+      end
+
+      it 'converts DC to 600' do
+        expect(converter.r_to_a('DC')).to eq(600)
+      end
+
+      it 'converts DCC to 700' do
+        expect(converter.r_to_a('DCC')).to eq(700)
+      end
+
+      it 'converts DCCC to 800' do
+        expect(converter.r_to_a('DCCC')).to eq(800)
+      end
+
+      it 'converts CM to 900' do
+        expect(converter.r_to_a('CM')).to eq(900)
+      end
+
+      it 'converts M to 1000' do
+        expect(converter.r_to_a('M')).to eq(1000)
+      end
+
+      it 'converts MM to 2000' do
+        expect(converter.r_to_a('MM')).to eq(2000)
+      end
+
+      # High as I'm going because I don't have any higher order numerals to use that
+      # would prevent me from having four M's in a row
+      it 'converts MMM to 3000' do
+        expect(converter.r_to_a('MMM')).to eq(3000)
+      end
+
+    end
+
+
+    describe 'edge cases' do
+
+      it 'converts the largest possible number (MMMCMXCIX to 3999)' do
+        expect(converter.r_to_a('MMMCMXCIX')).to eq(3999)
+      end
+
+      it 'can convert a number with a non-zero value in every place (MCCXXXIV to 1234)' do
+        expect(converter.r_to_a('MCCXXXIV')).to eq(1234)
+      end
+
+    end
+
+    describe 'spot checking' do
+
+      it 'converts MLXVI to 1066' do
+        expect(converter.r_to_a('MLXVI')).to eq(1066)
+      end
+
+      it 'converts MCMLXXXIX to 1989' do
+        expect(converter.r_to_a('MCMLXXXIX')).to eq(1989)
+      end
+
+    end
+
   end
 
 end

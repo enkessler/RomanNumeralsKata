@@ -15,7 +15,7 @@ class RomanArabicConverter
     converted_number
   end
 
-  def r_to_a
+  def r_to_a(number)
 
   end
 

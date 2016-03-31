@@ -30,10 +30,9 @@ class RomanArabicConverter
       current_digit = digit_mappings[digit]
       next_digit = digit_mappings[number[index+1]]
 
-      # A larger next number indicates subtraction
+      # A larger next number indicates subtraction instead of addition
       if next_digit && next_digit > current_digit
-        # Subtracting the next number at the end because it will be added on the next iteration of the loop
-        converted_number += (next_digit - current_digit) - next_digit
+        converted_number -= current_digit
       else
         converted_number += current_digit
       end

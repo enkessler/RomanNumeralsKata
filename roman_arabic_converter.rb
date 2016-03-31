@@ -1,21 +1,31 @@
 class RomanArabicConverter
 
   def a_to_r(number)
+    digit_mappings= {0 => ['', '', '', ''],
+                     1 => ['I', 'X', 'C', 'M'],
+                     2 => ['II', 'XX', 'CC', 'MM'],
+                     3 => ['III', 'XXX', 'CCC', 'MMM'],
+                     4 => ['IV', 'XL', 'CD', ''],
+                     5 => ['V', 'L', 'D', ''],
+                     6 => ['VI', 'LX', 'DC', ''],
+                     7 => ['VII', 'LXX', 'DCC', ''],
+                     8 => ['VIII', 'LXXX', 'DCCC', ''],
+                     9 => ['IX', 'XC', 'CM', '']}
+
     converted_number = ''
 
     # Note: will never have a number with more than four digits
-    converted_number.prepend(convert_ones_place(number % 10))
-    number /= 10
-    converted_number.prepend(convert_tens_place(number % 10))
-    number /= 10
-    converted_number.prepend(convert_hundreds_place(number % 10))
-    number /= 10
-    converted_number.prepend(convert_thousands_place(number % 10))
+    4.times do |magnitude|
+      digit = digit_for_magnitude(number, magnitude)
+      converted_number.prepend(digit_mappings[digit][magnitude])
+    end
 
     converted_number
   end
 
+
   def r_to_a(number)
+    # These mappings are easier because, unlike Arabic numerals, Roman numerals indicate both size and magnitude
     digit_mappings ={'I' => 1,
                      'V' => 5,
                      'X' => 10,
@@ -46,58 +56,12 @@ class RomanArabicConverter
   private
 
 
-  def convert_ones_place(digit)
-    conversion_map ={0 => '',
-                     1 => 'I',
-                     2 => 'II',
-                     3 => 'III',
-                     4 => 'IV',
-                     5 => 'V',
-                     6 => 'VI',
-                     7 => 'VII',
-                     8 => 'VIII',
-                     9 => 'IX'}
+  def digit_for_magnitude(number, magnitude)
+    magnitude.times do
+      number /= 10
+    end
 
-    conversion_map[digit]
-  end
-
-  def convert_tens_place(digit)
-    conversion_map ={0 => '',
-                     1 => 'X',
-                     2 => 'XX',
-                     3 => 'XXX',
-                     4 => 'XL',
-                     5 => 'L',
-                     6 => 'LX',
-                     7 => 'LXX',
-                     8 => 'LXXX',
-                     9 => 'XC'}
-
-    conversion_map[digit]
-  end
-
-  def convert_hundreds_place(digit)
-    conversion_map ={0 => '',
-                     1 => 'C',
-                     2 => 'CC',
-                     3 => 'CCC',
-                     4 => 'CD',
-                     5 => 'D',
-                     6 => 'DC',
-                     7 => 'DCC',
-                     8 => 'DCCC',
-                     9 => 'CM'}
-
-    conversion_map[digit]
-  end
-
-  def convert_thousands_place(digit)
-    conversion_map ={0 => '',
-                     1 => 'M',
-                     2 => 'MM',
-                     3 => 'MMM'}
-
-    conversion_map[digit]
+    number % 10
   end
 
 end
